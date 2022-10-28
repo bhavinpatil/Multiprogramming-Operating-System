@@ -27,19 +27,3 @@
 - There is $DTA after declaration of program cards
   and before data cards
 - Job should end with $END
-
-
-* Tools used
-- Gcc compiler
-- Emacs
-- Gdb
-- Gprof,Gcov,Cscope
-- Python
-
-* Using...
-- git clone https://github.com/tripples/MOS.git
-- cd MOS/`your desired phase`
-- make
-- ./mos
-- cat output.txt
-- Edit input.txt for more fun.
