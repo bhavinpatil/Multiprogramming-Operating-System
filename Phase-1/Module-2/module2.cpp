@@ -21,7 +21,7 @@ void writeLine(FILE *fptr, char *content)
     fputc('\n', fptr);
 }
 
-void executeUserProgram(FILE *fReadPtr, int *IC, char *IR, char *R, int *C, char (*M)[4], char *buffer)
+void executeUserProgram(FILE *fReadPtr, int *IC, char *IR, char *R, int *C, char M[100][4], char *buffer)
 {
     int SI = false;
     FILE *fWritePtr = fopen("output.txt", "w");
@@ -56,7 +56,7 @@ void executeUserProgram(FILE *fReadPtr, int *IC, char *IR, char *R, int *C, char
         *IC = *IC + 1;
     }
 }
-void startExecution(FILE *fReadPtr, char *IR, char *R, int *C, char *M, char *buffer)
+void startExecution(FILE *fReadPtr, char *IR, char *R, int *C, char M[100][4], char *buffer)
 {
     int IC = 0;
     executeUserProgram(fReadPtr, &IC, IR, R, C, M, buffer);
@@ -104,11 +104,11 @@ int main()
                 }
             }
         }
-        else if ((buffer[0] == '$') && (buffer[0] == 'D'))
+        else if ((buffer[0] == '$') && (buffer[1] == 'D'))
         {
-            startExecution(fptr, IR, R, &C, *M, buffer);
+            startExecution(fptr, IR, R, &C, M, buffer);
         }
-        else if ((buffer[0] == '$') && (buffer[0] == 'E'))
+        else if ((buffer[0] == '$') && (buffer[1] == 'E'))
         {
         }
     }
